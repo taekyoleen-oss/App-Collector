@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card"
-import { FileText, Languages, Eraser } from "lucide-react"
+import { FileText, Languages, Eraser, Link as LinkIcon } from "lucide-react"
 
 const apps = [
   {
@@ -43,6 +43,19 @@ const apps = [
   }
 ]
 
+const referenceLinks = [
+  {
+    title: "TweakCN",
+    url: "https://tweakcn.com/",
+    description: "개발자들을 위한 유용한 도구와 리소스를 제공하는 웹사이트입니다."
+  },
+  {
+    title: "Aspose File Format Apps",
+    url: "https://metrics.aspose.app/",
+    description: "PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D 등 다양한 파일 형식을 무료로 처리할 수 있는 온라인 도구 모음입니다."
+  }
+]
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
@@ -66,6 +79,45 @@ export default function Home() {
           {apps.map((app) => (
             <AppCard key={app.title} {...app} />
           ))}
+        </div>
+      </section>
+
+      {/* Reference Links Section */}
+      <section className="container mx-auto px-4 py-12 border-t-2 border-foreground/20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+            <span className="inline-block px-4 py-2 bg-muted border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground">
+              참고 링크
+            </span>
+          </h2>
+          <div className="space-y-4">
+            {referenceLinks.map((link, index) => (
+              <div
+                key={index}
+                className="border-2 border-foreground bg-card p-4 shadow-[3px_3px_0px_0px] shadow-foreground hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all duration-200"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-2 bg-background border-2 border-foreground flex-shrink-0">
+                    <LinkIcon className="h-5 w-5" />
+                  </div>
+                  <div className="flex-1">
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
+                    >
+                      {link.title}
+                      <span className="text-sm">↗</span>
+                    </a>
+                    <p className="text-sm text-foreground/70 mt-1">
+                      {link.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
