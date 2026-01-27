@@ -53,6 +53,11 @@ const referenceLinks = [
     title: "Aspose File Format Apps",
     url: "https://metrics.aspose.app/",
     description: "PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D 등 다양한 파일 형식을 무료로 처리할 수 있는 온라인 도구 모음입니다."
+  },
+  {
+    title: "v0 by Vercel",
+    url: "https://v0.app/",
+    description: "AI를 활용하여 에이전트, 앱, 웹사이트를 빠르게 구축할 수 있는 도구입니다. 템플릿과 컴포넌트를 제공하며, GitHub 연동 및 Vercel 배포를 지원합니다."
   }
 ]
 
