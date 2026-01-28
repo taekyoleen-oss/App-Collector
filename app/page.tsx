@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card"
-import { FileText, Languages, Eraser, Link as LinkIcon } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon } from "lucide-react"
 
 const apps = [
   {
@@ -40,6 +40,19 @@ const apps = [
     link: "https://magic-eraser-ai-956594633589.us-west1.run.app",
     icon: <Eraser className="h-6 w-6" />,
     accentColor: "bg-accent/40"
+  },
+  {
+    title: "StyleSync AI",
+    description: "기존 이미지를 기반으로 새로운 이미지를 유사한 스타일로 변환해 드립니다. AI가 이미지의 스타일을 분석하여 일관된 결과물을 생성합니다.",
+    features: [
+      "이미지 스타일 동기화",
+      "AI 기반 스타일 분석",
+      "유사한 스타일 이미지 생성",
+      "고품질 변환 결과"
+    ],
+    link: "https://stylesync-ai-292738906478.us-west1.run.app/",
+    icon: <Image className="h-6 w-6" />,
+    accentColor: "bg-purple-500/20"
   }
 ]
 
@@ -58,6 +71,11 @@ const referenceLinks = [
     title: "v0 by Vercel",
     url: "https://v0.app/",
     description: "AI를 활용하여 에이전트, 앱, 웹사이트를 빠르게 구축할 수 있는 도구입니다. 템플릿과 컴포넌트를 제공하며, GitHub 연동 및 Vercel 배포를 지원합니다."
+  },
+  {
+    title: "Gamma",
+    url: "https://gamma.app/",
+    description: "AI 기반 프레젠테이션 및 문서 생성 도구입니다. 텍스트만 입력하면 자동으로 아름다운 슬라이드와 문서를 만들어주며, 인터랙티브한 콘텐츠를 쉽게 제작할 수 있습니다."
   }
 ]
 
