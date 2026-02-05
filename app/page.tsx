@@ -3,19 +3,6 @@ import { FileText, Languages, Eraser, Image, Link as LinkIcon } from "lucide-rea
 
 const apps = [
   {
-    title: "PDF Master",
-    description: "PDF 파일을 손쉽게 관리하세요. 여러 PDF를 하나로 합치거나, 필요한 페이지만 추출하거나, 불필요한 페이지를 삭제할 수 있습니다.",
-    features: [
-      "여러 PDF 파일 합치기",
-      "PDF 페이지 분할 및 추출",
-      "특정 페이지 삭제",
-      "빠르고 간편한 처리"
-    ],
-    link: "https://pdf-master-merge-delete-split-192259229963.us-west1.run.app/",
-    icon: <FileText className="h-6 w-6" />,
-    accentColor: "bg-primary/20"
-  },
-  {
     title: "English Tutor",
     description: "한글로 문장을 입력하면 자연스러운 영어로 자동 번역해 드립니다. 주제에 맞는 영어 대화문도 생성하여 실전 회화 연습에 도움을 줍니다.",
     features: [
@@ -27,6 +14,19 @@ const apps = [
     link: "https://gemini-english-tutor-192259229963.us-west1.run.app",
     icon: <Languages className="h-6 w-6" />,
     accentColor: "bg-secondary/40"
+  },
+  {
+    title: "PDF Master",
+    description: "PDF 파일을 손쉽게 관리하세요. 여러 PDF를 하나로 합치거나, 필요한 페이지만 추출하거나, 불필요한 페이지를 삭제할 수 있습니다.",
+    features: [
+      "여러 PDF 파일 합치기",
+      "PDF 페이지 분할 및 추출",
+      "특정 페이지 삭제",
+      "빠르고 간편한 처리"
+    ],
+    link: "https://pdf-master-merge-delete-split-192259229963.us-west1.run.app/",
+    icon: <FileText className="h-6 w-6" />,
+    accentColor: "bg-primary/20"
   },
   {
     title: "Magic Eraser AI",
@@ -76,6 +76,11 @@ const referenceLinks = [
     title: "Gamma",
     url: "https://gamma.app/",
     description: "AI 기반 프레젠테이션 및 문서 생성 도구입니다. 텍스트만 입력하면 자동으로 아름다운 슬라이드와 문서를 만들어주며, 인터랙티브한 콘텐츠를 쉽게 제작할 수 있습니다."
+  },
+  {
+    title: "Codia AI",
+    url: "https://codia.ai/",
+    description: "AI 기반 디자인·개발 플랫폼입니다. 스크린샷·PDF·웹을 Figma로 변환하고, Figma 디자인을 코드로 내보내는 등 디자인과 코드 간 변환을 자동화합니다."
   }
 ]
 
