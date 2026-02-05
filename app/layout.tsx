@@ -12,9 +12,8 @@ const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200"
 const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: 'App Playground - 유틸리티 앱 모음',
+  title: 'App Playground',
   description: 'PDF Master, English Tutor, Magic Eraser AI 등 다양한 유틸리티 앱을 테스트해 보세요',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
