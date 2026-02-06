@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator } from "lucide-react"
 
 const apps = [
   {
@@ -53,6 +53,19 @@ const apps = [
     link: "https://stylesync-ai-292738906478.us-west1.run.app/",
     icon: <Image className="h-6 w-6" />,
     accentColor: "bg-purple-500/20"
+  },
+  {
+    title: "Actuary Pro Calc",
+    description: "계리사 시험 1차에서 사용 가능한 계산기입니다. 시험에서 허용하는 계산기를 사용하여 수식을 계산하고 이에 대한 계산과정을 보여줍니다.",
+    features: [
+      "대상: 카시오(JS-40B/JS-40GT), 사프(EL-N942X), 캐논(LS-1200V/TS-1200TG) 계산기",
+      "M+, M- 기능 활용 가능",
+      "시험환경에 적합 계산 기능",
+      "계산과정의 직관적인 설명"
+    ],
+    link: "https://pro-exam-calculator-rice-house-style-190779861158.us-west1.run.app",
+    icon: <Calculator className="h-6 w-6" />,
+    accentColor: "bg-blue-500/20"
   }
 ]
 
