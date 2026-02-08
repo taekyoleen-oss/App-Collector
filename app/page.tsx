@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones } from "lucide-react"
 
 const apps = [
   {
@@ -14,6 +14,19 @@ const apps = [
     link: "https://gemini-english-tutor-192259229963.us-west1.run.app",
     icon: <Languages className="h-6 w-6" />,
     accentColor: "bg-secondary/40"
+  },
+  {
+    title: "English Buddy(MP3)",
+    description: "영어 문장 MP3를 반복해서 듣고 자막을 통해 연습하는 앱입니다.",
+    features: [
+      "영어 MP3 반복 청취",
+      "자막을 통한 듣기 연습",
+      "편리한 반복 재생",
+      "청취·발음 연습 지원"
+    ],
+    link: "https://english-buddy-866656523453.us-west1.run.app/",
+    icon: <Headphones className="h-6 w-6" />,
+    accentColor: "bg-emerald-500/20"
   },
   {
     title: "PDF Master",
