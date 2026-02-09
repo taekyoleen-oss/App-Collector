@@ -69,7 +69,7 @@ function FeatureItem({ feature, index }: { feature: string; index: number }) {
 
 export function AppCard({ title, description, features, link, icon, accentColor }: AppCardProps) {
   return (
-    <Card className={`border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 ${accentColor}`}>
+    <Card className={`border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 flex flex-col h-full ${accentColor}`}>
       <CardHeader>
         <div className="flex items-center gap-3">
           <div className="p-3 bg-background border-2 border-foreground">
@@ -81,15 +81,15 @@ export function AppCard({ title, description, features, link, icon, accentColor 
           {description}
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <ul className="space-y-2">
+      <CardContent className="flex flex-1 flex-col gap-4 pt-0">
+        <ul className="space-y-2 flex-1">
           {features.map((feature, index) => (
             <FeatureItem key={index} feature={feature} index={index} />
           ))}
         </ul>
         <Button 
           asChild 
-          className="w-full border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all duration-150 font-bold"
+          className="w-full mt-auto border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all duration-150 font-bold"
         >
           <a href={link} target="_blank" rel="noopener noreferrer">
             앱 열기
