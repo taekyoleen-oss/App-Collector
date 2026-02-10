@@ -1,5 +1,5 @@
 import { AppCard } from "@/components/app-card"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction } from "lucide-react"
 
 const apps = [
   {
@@ -79,6 +79,19 @@ const apps = [
     link: "https://pro-exam-calculator-rice-house-style-190779861158.us-west1.run.app",
     icon: <Calculator className="h-6 w-6" />,
     accentColor: "bg-blue-500/20"
+  },
+  {
+    title: "이미지 수식변환기",
+    description: "이미지나 간단한 텍스트를 LaTeX, PPT, Word 수식으로 변환해 드립니다. 논문·보고서·발표 자료 작성에 활용할 수 있습니다.",
+    features: [
+      "이미지를 LaTeX, PPT, Word 수식으로 변환",
+      "간단한 텍스트를 LaTeX, PPT, Word 수식으로 변환",
+      "다양한 출력 형식 지원",
+      "수식 복사·붙여넣기 편의"
+    ],
+    link: "https://mathocr-formula-to-office-converter-190779861158.us-west1.run.app/",
+    icon: <SquareFunction className="h-6 w-6" />,
+    accentColor: "bg-amber-500/20"
   }
 ]
 
