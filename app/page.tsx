@@ -120,6 +120,11 @@ const referenceLinks = [
     title: "Codia AI",
     url: "https://codia.ai/",
     description: "AI 기반 디자인·개발 플랫폼입니다. 스크린샷·PDF·웹을 Figma로 변환하고, Figma 디자인을 코드로 내보내는 등 디자인과 코드 간 변환을 자동화합니다."
+  },
+  {
+    title: "Stitch",
+    url: "https://stitch.withgoogle.com/?pli=1",
+    description: "Google에서 제공하는 AI 디자인 도구입니다. AI와 함께 디자인하고 시각적 콘텐츠를 만들 수 있습니다."
   }
 ]
 
