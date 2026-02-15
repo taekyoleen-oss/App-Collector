@@ -16,6 +16,8 @@
 
 ## 3. 환경 변수 설정
 
+### 로컬 개발 (.env.local)
+
 프로젝트 루트에 `.env.local` 파일을 만들고 다음을 추가합니다.
 
 ```env
@@ -25,6 +27,20 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 - **anon key**만으로 읽기/쓰기 정책을 “모두 허용”해 두었다면 위 두 개만 있으면 됩니다.
 - 나중에 RLS로 “로그인한 사용자만” 제한할 경우, 서버에서만 쓰는 **service_role** key는 절대 클라이언트에 노출하지 말고, Server Action 등 서버 코드에서만 사용하세요.
+
+### 배포 시 주의: .env.local은 배포에 포함되지 않습니다
+
+- `.env.local`은 **로컬에서만** 사용됩니다. 이 파일은 보안상 `.gitignore`에 포함되어 있어 **Git에 커밋되지 않고, Vercel 등에 업로드되지 않습니다.**
+- 따라서 **배포된 사이트(Vercel 등)에서 Supabase를 쓰려면, 배포 플랫폼 대시보드에서 환경 변수를 따로 설정**해야 합니다. 아래는 Vercel 기준입니다.
+
+### Vercel에 환경 변수 넣는 방법
+
+1. [Vercel 대시보드](https://vercel.com) 로그인 후 해당 프로젝트 선택
+2. 상단 **Settings** → 왼쪽 메뉴 **Environment Variables** 이동
+3. **Key**에 `NEXT_PUBLIC_SUPABASE_URL`, **Value**에 Supabase 프로젝트 URL 입력 후 **Save**
+4. 같은 방식으로 **Key** `NEXT_PUBLIC_SUPABASE_ANON_KEY`, **Value**에 anon key 입력 후 **Save**
+5. **Environment**는 Production(필수), Preview, Development 중 필요한 것에 체크 (보통 Production만 해도 됨)
+6. 저장 후 **Deployments** 탭에서 최신 배포를 선택 → **Redeploy** 하면 새 환경 변수가 적용됩니다. (이미 배포된 빌드는 환경 변수 변경만으로는 갱신되지 않으므로 재배포 필요)
 
 ## 4. 패키지 설치
 
