@@ -1,4 +1,6 @@
 import { AppCard } from "@/components/app-card"
+import { AiToolsSection } from "@/components/ai-tools-section"
+import { SiteNav } from "@/components/site-nav"
 import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction } from "lucide-react"
 
 const apps = [
@@ -95,6 +97,33 @@ const apps = [
   }
 ]
 
+/** AI 도구 설명 카드용 데이터. PDF는 public/ai-tools/ 에 두고, href는 /api/view-pdf?file=파일명. 이미지로 게시 시 imagesBaseUrl, imageCount, imageExt 를 넣으면 이미지 뷰어로 표시됩니다. */
+const aiTools = [
+  {
+    title: "bananaNL 및 Grabbit 으로 노트북ML 강화.pdf",
+    description: "bananaNL로 다양한 슬라이드 양식 적용 · Grabbit으로 웹사이트 저장 등 기능 강화",
+    href: "/api/view-pdf?file=" + encodeURIComponent("bananaNL 및 Grabbit 으로 노트북ML 강화.pdf"),
+    // ZIP을 public/ai-tools/에 풀어 'bananaNL 및 Grabbit 으로 노트북ML 강화' 폴더가 생기면 이미지 뷰어로 바로 표시됨 (개수는 API가 자동 조회)
+    imagesBaseUrl: "/ai-tools/bananaNL 및 Grabbit 으로 노트북ML 강화",
+    imageExt: "png",
+  },
+  {
+    title: "Cursor 사용 가이드",
+    description: "Cursor IDE 기본 사용법과 AI 기능 활용 방법을 소개합니다.",
+    href: "/api/view-pdf?file=" + encodeURIComponent("cursor-guide.pdf")
+  },
+  {
+    title: "ChatGPT 활용 가이드",
+    description: "ChatGPT를 업무와 학습에 활용하는 방법을 정리했습니다.",
+    href: "/api/view-pdf?file=" + encodeURIComponent("chatgpt-guide.pdf")
+  },
+  {
+    title: "Claude 사용법",
+    description: "Claude AI 도구의 주요 기능과 활용 팁을 설명합니다.",
+    href: "/api/view-pdf?file=" + encodeURIComponent("claude-guide.pdf")
+  }
+]
+
 const referenceLinks = [
   {
     title: "TweakCN",
@@ -125,12 +154,21 @@ const referenceLinks = [
     title: "Stitch",
     url: "https://stitch.withgoogle.com/?pli=1",
     description: "Google에서 제공하는 AI 디자인 도구입니다. AI와 함께 디자인하고 시각적 콘텐츠를 만들 수 있습니다."
+  },
+  {
+    title: "NotebookLM 워터마크 제거",
+    links: [
+      { title: "SlideDeckCleaner", url: "https://www.slidedeckcleaner.com/" },
+      { title: "NotebookLM Remover (한국어)", url: "https://notebooklmremover.com/ko" }
+    ],
+    description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
   }
 ]
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <SiteNav />
       {/* Header */}
       <header className="border-b-2 border-foreground bg-card">
         <div className="container mx-auto px-4 py-6">
@@ -145,8 +183,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <section className="container mx-auto px-4 py-12">
+      {/* Main Content - 카드보기 */}
+      <section id="card-view" className="container mx-auto px-4 py-12 scroll-mt-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app) => (
             <AppCard key={app.title} {...app} />
@@ -155,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Reference Links Section */}
-      <section className="container mx-auto px-4 py-12 border-t-2 border-foreground/20">
+      <section id="reference-links" className="container mx-auto px-4 py-12 border-t-2 border-foreground/20 scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
             <span className="inline-block px-4 py-2 bg-muted border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground">
@@ -173,15 +211,33 @@ export default function Home() {
                     <LinkIcon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
-                    >
-                      {link.title}
-                      <span className="text-sm">↗</span>
-                    </a>
+                    {"links" in link && link.links ? (
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <span className="text-lg font-bold text-foreground">{link.title}</span>
+                        {link.links.map((item, i) => (
+                          <a
+                            key={i}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:underline inline-flex items-center gap-1 font-medium"
+                          >
+                            {item.title}
+                            <span className="text-sm">↗</span>
+                          </a>
+                        ))}
+                      </div>
+                    ) : (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
+                      >
+                        {link.title}
+                        <span className="text-sm">↗</span>
+                      </a>
+                    )}
                     <p className="text-sm text-foreground/70 mt-1">
                       {link.description}
                     </p>
@@ -189,6 +245,23 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI 도구 설명 Section - 파스텔 톤 */}
+      <section id="ai-tools" className="border-t-2 border-foreground/20 scroll-mt-24 bg-[oklch(0.98_0.015_85)]">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              <span className="inline-block px-4 py-2 bg-[oklch(0.94_0.04_75)] border-2 border-amber-200/80 shadow-[3px_3px_0px_0px] shadow-amber-300/40">
+                AI 도구 설명
+              </span>
+            </h2>
+            <p className="text-center text-foreground/70 mb-8 max-w-2xl mx-auto">
+              AI 관련 도구의 사용 방법을 소개하는 문서입니다. 카드를 클릭하면 화면에서 바로 PDF를 볼 수 있습니다.
+            </p>
+            <AiToolsSection tools={aiTools} />
           </div>
         </div>
       </section>

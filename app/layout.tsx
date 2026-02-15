@@ -6,10 +6,10 @@ import './globals.css'
 
 import { Geist, Geist_Mono, Source_Serif_4 } from 'next/font/google'
 
-// Initialize fonts
-const _geist = Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _geistMono = Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+// Initialize fonts (preload: false로 초기 로드 시 미사용 폰트 preload 경고 완화)
+const _geist = Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"], preload: false })
+const _geistMono = Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"], preload: false })
+const _sourceSerif_4 = Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"], preload: false })
 
 export const metadata: Metadata = {
   title: 'App Playground',
