@@ -1,13 +1,15 @@
 "use server"
 
-import { createClient } from "@/lib/supabase/server"
+import { createClient, SUPABASE_NOT_CONFIGURED } from "@/lib/supabase/server"
 import type { PromptExampleInsert, PromptExampleUpdate } from "@/lib/supabase/types"
 import { revalidatePath } from "next/cache"
+import { notFound } from "next/navigation"
 
 export type SortOption = "last_used" | "title_asc" | "title_desc" | "created_desc" | "created_asc"
 
 export async function getPromptExamples(category: string, sort: SortOption = "last_used") {
   const supabase = createClient()
+  if (!supabase) return []
   let query = supabase
     .from("prompt_examples")
     .select("*")
@@ -38,6 +40,7 @@ export async function getPromptExamples(category: string, sort: SortOption = "la
 
 export async function getPromptExample(id: string) {
   const supabase = createClient()
+  if (!supabase) notFound()
   const { data, error } = await supabase
     .from("prompt_examples")
     .select("*")
@@ -49,6 +52,7 @@ export async function getPromptExample(id: string) {
 
 export async function createPromptExample(input: PromptExampleInsert) {
   const supabase = createClient()
+  if (!supabase) throw new Error(SUPABASE_NOT_CONFIGURED)
   const { data, error } = await supabase.from("prompt_examples").insert(input).select().single()
   if (error) throw error
   revalidatePath("/prompts")
@@ -57,6 +61,7 @@ export async function createPromptExample(input: PromptExampleInsert) {
 
 export async function updatePromptExample(id: string, input: PromptExampleUpdate) {
   const supabase = createClient()
+  if (!supabase) throw new Error(SUPABASE_NOT_CONFIGURED)
   const { data, error } = await supabase
     .from("prompt_examples")
     .update({ ...input, last_used_at: new Date().toISOString() })
@@ -71,6 +76,7 @@ export async function updatePromptExample(id: string, input: PromptExampleUpdate
 
 export async function updateLastUsed(id: string) {
   const supabase = createClient()
+  if (!supabase) return
   await supabase
     .from("prompt_examples")
     .update({ last_used_at: new Date().toISOString() })
@@ -80,6 +86,7 @@ export async function updateLastUsed(id: string) {
 
 export async function deletePromptExample(id: string) {
   const supabase = createClient()
+  if (!supabase) throw new Error(SUPABASE_NOT_CONFIGURED)
   const { error } = await supabase.from("prompt_examples").delete().eq("id", id)
   if (error) throw error
   revalidatePath("/prompts")
