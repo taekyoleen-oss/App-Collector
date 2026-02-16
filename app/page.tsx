@@ -171,11 +171,10 @@ const referenceLinks = [
   {
     title: "NotebookLM 워터마크 제거",
     links: [
-      { title: "NotebookLM Slide Cleaner", url: "https://notebooklm-slide-cleaner-190779861158.us-west1.run.app" },
       { title: "SlideDeckCleaner", url: "https://www.slidedeckcleaner.com/" },
       { title: "NotebookLM Remover (한국어)", url: "https://notebooklmremover.com/ko" }
     ],
-    description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. Slide Cleaner는 페이지 이동·삭제·일괄 제거도 가능하며, 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
+    description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
   }
 ]
 
