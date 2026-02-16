@@ -3,9 +3,58 @@
 import { createClient, SUPABASE_NOT_CONFIGURED } from "@/lib/supabase/server"
 import type { PromptExampleInsert, PromptExampleUpdate } from "@/lib/supabase/types"
 import { revalidatePath } from "next/cache"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 export type SortOption = "last_used" | "title_asc" | "title_desc" | "created_desc" | "created_asc"
+
+export async function getPromptCategories() {
+  const supabase = createClient()
+  if (!supabase) return []
+  const { data, error } = await supabase
+    .from("prompt_categories")
+    .select("id, name, sort_order")
+    .order("sort_order", { ascending: true })
+  if (error) return []
+  return (data ?? []) as { id: string; name: string; sort_order: number }[]
+}
+
+export async function createPromptCategory(name: string) {
+  const supabase = createClient()
+  if (!supabase) throw new Error(SUPABASE_NOT_CONFIGURED)
+  const trimmed = name.trim()
+  if (!trimmed) throw new Error("카테고리 이름을 입력하세요.")
+  const { data, error } = await supabase
+    .from("prompt_categories")
+    .insert({ name: trimmed, sort_order: 999 })
+    .select()
+    .single()
+  if (error) throw error
+  revalidatePath("/prompts")
+  revalidatePath("/prompts/new")
+  return data
+}
+
+const CATEGORY_NOT_EMPTY_MESSAGE =
+  "이 카테고리에 항목이 있어 삭제할 수 없습니다. 내용을 모두 비운 후 삭제해 주세요."
+
+export async function deletePromptCategory(categoryName: string) {
+  const supabase = createClient()
+  if (!supabase) throw new Error(SUPABASE_NOT_CONFIGURED)
+  const { count, error: countError } = await supabase
+    .from("prompt_examples")
+    .select("*", { count: "exact", head: true })
+    .eq("category", categoryName)
+  if (countError) throw countError
+  if (count != null && count > 0) throw new Error(CATEGORY_NOT_EMPTY_MESSAGE)
+  const { error: deleteError } = await supabase
+    .from("prompt_categories")
+    .delete()
+    .eq("name", categoryName)
+  if (deleteError) throw deleteError
+  revalidatePath("/prompts")
+  revalidatePath("/prompts/new")
+  redirect("/prompts")
+}
 
 export async function getPromptExamples(category: string, sort: SortOption = "last_used") {
   const supabase = createClient()

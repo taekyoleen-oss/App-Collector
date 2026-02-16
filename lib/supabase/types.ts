@@ -3,6 +3,26 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 export interface Database {
   public: {
     Tables: {
+      prompt_categories: {
+        Row: {
+          id: string
+          name: string
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          sort_order?: number
+          created_at?: string
+        }
+      }
       prompt_examples: {
         Row: {
           id: string
@@ -42,6 +62,7 @@ export interface Database {
   }
 }
 
+export type PromptCategoryRow = Database["public"]["Tables"]["prompt_categories"]["Row"]
 export type PromptExample = Database["public"]["Tables"]["prompt_examples"]["Row"]
 export type PromptExampleInsert = Database["public"]["Tables"]["prompt_examples"]["Insert"]
 export type PromptExampleUpdate = Database["public"]["Tables"]["prompt_examples"]["Update"]

@@ -1,9 +1,11 @@
 import Link from "next/link"
 import { isSupabaseConfigured } from "@/lib/supabase/server"
-import { getPromptExamples } from "./actions"
+import { getPromptExamples, getPromptCategories } from "./actions"
 import { PROMPT_CATEGORIES, SORT_OPTIONS } from "./constants"
 import type { SortOption } from "./actions"
 import { PromptCard } from "./prompt-card"
+import { AddCategoryButton } from "./add-category-button"
+import { DeleteCategoryButton } from "./delete-category-button"
 import { Plus } from "lucide-react"
 
 export const dynamic = "force-dynamic"
@@ -14,13 +16,20 @@ export default async function PromptsPage({
   searchParams: Promise<{ category?: string; sort?: string }>
 }) {
   const params = await searchParams
-  const category = PROMPT_CATEGORIES.includes(params.category as (typeof PROMPT_CATEGORIES)[number])
-    ? (params.category as (typeof PROMPT_CATEGORIES)[number])
-    : PROMPT_CATEGORIES[0]
+  const configured = isSupabaseConfigured()
+  let categoryNames: string[] = []
+  try {
+    const fromDb = await getPromptCategories()
+    categoryNames = fromDb.length > 0 ? fromDb.map((c) => c.name) : [...PROMPT_CATEGORIES]
+  } catch {
+    categoryNames = [...PROMPT_CATEGORIES]
+  }
+  const category = categoryNames.includes(params.category ?? "")
+    ? (params.category as string)
+    : categoryNames[0] ?? PROMPT_CATEGORIES[0]
   const validSorts: SortOption[] = ["last_used", "title_asc", "title_desc", "created_desc", "created_asc"]
   const sort: SortOption = validSorts.includes(params.sort as SortOption) ? (params.sort as SortOption) : "last_used"
 
-  const configured = isSupabaseConfigured()
   let items: Awaited<ReturnType<typeof getPromptExamples>> = []
   let error: string | null = null
   try {
@@ -51,8 +60,8 @@ export default async function PromptsPage({
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {PROMPT_CATEGORIES.map((c) => (
+        <div className="flex flex-wrap items-center gap-2 mb-6">
+          {categoryNames.map((c) => (
             <Link
               key={c}
               href={`/prompts?category=${encodeURIComponent(c)}&sort=${encodeURIComponent(sort)}`}
@@ -65,6 +74,7 @@ export default async function PromptsPage({
               {c}
             </Link>
           ))}
+          {configured && <AddCategoryButton />}
         </div>
 
         <div className="flex flex-wrap items-center gap-4 mb-4">
@@ -98,6 +108,10 @@ export default async function PromptsPage({
             <PromptCard key={item?.id ?? index} item={item!} />
           ))}
         </div>
+
+        {configured && category && (
+          <DeleteCategoryButton categoryName={category} />
+        )}
       </div>
     </main>
   )

@@ -12,7 +12,8 @@
 
 1. Supabase 대시보드 **SQL Editor** 이동
 2. `docs/supabase-prompt-examples-schema.sql` 내용을 복사해 붙여넣고 **Run** 실행
-3. **Table Editor**에서 `prompt_examples` 테이블이 생성되었는지 확인
+3. `docs/supabase-prompt-categories-schema.sql` 내용을 복사해 붙여넣고 **Run** 실행 (카테고리 추가 기능용)
+4. **Table Editor**에서 `prompt_examples`, `prompt_categories` 테이블이 생성되었는지 확인
 
 ## 3. 환경 변수 설정
 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { redirect } from "next/navigation"
-import { createPromptExample } from "../actions"
+import { createPromptExample, getPromptCategories } from "../actions"
 import { PROMPT_CATEGORIES } from "../constants"
 import { PromptForm } from "../prompt-form"
 import { ArrowLeft } from "lucide-react"
@@ -13,7 +13,16 @@ export default async function NewPromptPage({
   searchParams: Promise<{ category?: string }>
 }) {
   const params = await searchParams
-  const category = params.category ?? PROMPT_CATEGORIES[0]
+  let categoryNames: string[] = []
+  try {
+    const fromDb = await getPromptCategories()
+    categoryNames = fromDb.length > 0 ? fromDb.map((c) => c.name) : [...PROMPT_CATEGORIES]
+  } catch {
+    categoryNames = [...PROMPT_CATEGORIES]
+  }
+  const category = categoryNames.includes(params.category ?? "")
+    ? (params.category as string)
+    : categoryNames[0] ?? PROMPT_CATEGORIES[0]
 
   async function submit(formData: FormData) {
     "use server"
