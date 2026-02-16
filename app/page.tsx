@@ -121,9 +121,11 @@ const aiTools = [
     imageExt: "png",
   },
   {
-    title: "Cursor 사용 가이드",
-    description: "Cursor IDE 기본 사용법과 AI 기능 활용 방법을 소개합니다.",
-    href: "/api/view-pdf?file=" + encodeURIComponent("cursor-guide.pdf")
+    title: "Cursor 로 Supabase 설정하기",
+    description: "Cursor에서 Supabase DB 구성부터 웹 연동까지 설정 과정을 정리했습니다.",
+    href: "#",
+    imagesBaseUrl: "/ai-tools/Cursor로 Supabase 설정 과정",
+    imageExt: "png",
   },
   {
     title: "ChatGPT 활용 가이드",
