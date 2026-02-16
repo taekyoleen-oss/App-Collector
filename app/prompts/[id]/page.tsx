@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { redirect, notFound } from "next/navigation"
-import { getPromptExample, updatePromptExample, updateLastUsed, deletePromptExample } from "../actions"
-import { PromptForm } from "../prompt-form"
+import { getPromptExample, updatePromptExample, deletePromptExample } from "../actions"
+import { UpdateLastUsed } from "./update-last-used"
+import { PromptDetailClient } from "./prompt-detail-client"
 import { ArrowLeft } from "lucide-react"
 
 export const dynamic = "force-dynamic"
@@ -14,8 +15,6 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ i
   } catch {
     notFound()
   }
-
-  await updateLastUsed(id)
 
   async function submit(formData: FormData) {
     "use server"
@@ -37,6 +36,7 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ i
 
   return (
     <main className="min-h-screen bg-background">
+      <UpdateLastUsed id={id} />
       <div className="container mx-auto px-4 py-8 max-w-3xl">
         <Link
           href={`/prompts?category=${encodeURIComponent(item.category)}`}
@@ -45,20 +45,8 @@ export default async function PromptDetailPage({ params }: { params: Promise<{ i
           <ArrowLeft className="h-4 w-4" />
           목록으로
         </Link>
-        <h1 className="text-2xl font-bold mb-2">프롬프트 편집</h1>
-        <p className="text-sm text-foreground/60 mb-6">분류: {item.category}</p>
-        <PromptForm
-          category={item.category}
-          submit={submit}
-          initialValues={{
-            title: item.title,
-            content: item.content ?? "",
-            related_links: item.related_links ?? "",
-            attachment_urls: item.attachment_urls ?? [],
-          }}
-          isEdit
-          onDelete={remove}
-        />
+
+        <PromptDetailClient item={item} submit={submit} remove={remove} />
       </div>
     </main>
   )

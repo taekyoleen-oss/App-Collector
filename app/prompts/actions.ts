@@ -35,7 +35,7 @@ export async function getPromptExamples(category: string, sort: SortOption = "la
 
   const { data, error } = await query
   if (error) throw error
-  return data
+  return data ?? []
 }
 
 export async function getPromptExample(id: string) {

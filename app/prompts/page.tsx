@@ -3,7 +3,8 @@ import { isSupabaseConfigured } from "@/lib/supabase/server"
 import { getPromptExamples } from "./actions"
 import { PROMPT_CATEGORIES, SORT_OPTIONS } from "./constants"
 import type { SortOption } from "./actions"
-import { Plus, FileText } from "lucide-react"
+import { PromptCard } from "./prompt-card"
+import { Plus } from "lucide-react"
 
 export const dynamic = "force-dynamic"
 
@@ -13,14 +14,18 @@ export default async function PromptsPage({
   searchParams: Promise<{ category?: string; sort?: string }>
 }) {
   const params = await searchParams
-  const category = params.category ?? PROMPT_CATEGORIES[0]
-  const sort = (params.sort ?? "last_used") as SortOption
+  const category = PROMPT_CATEGORIES.includes(params.category as (typeof PROMPT_CATEGORIES)[number])
+    ? (params.category as (typeof PROMPT_CATEGORIES)[number])
+    : PROMPT_CATEGORIES[0]
+  const validSorts: SortOption[] = ["last_used", "title_asc", "title_desc", "created_desc", "created_asc"]
+  const sort: SortOption = validSorts.includes(params.sort as SortOption) ? (params.sort as SortOption) : "last_used"
 
   const configured = isSupabaseConfigured()
   let items: Awaited<ReturnType<typeof getPromptExamples>> = []
   let error: string | null = null
   try {
-    items = await getPromptExamples(category, sort)
+    const result = await getPromptExamples(category, sort)
+    items = Array.isArray(result) ? result : []
   } catch (e) {
     error = e instanceof Error ? e.message : "목록을 불러올 수 없습니다."
   }
@@ -75,38 +80,24 @@ export default async function PromptsPage({
           ))}
         </div>
 
-        <Link
-          href={`/prompts/new?category=${encodeURIComponent(category)}`}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-md border-2 border-foreground bg-card shadow-[2px_2px_0px_0px] shadow-foreground hover:shadow-[3px_3px_0px_0px] text-sm font-medium"
-        >
-          <Plus className="h-4 w-4" />
-          새로 만들기
-        </Link>
-
-        <ul className="space-y-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Link
+            href={`/prompts/new?category=${encodeURIComponent(category)}`}
+            className="flex flex-col min-h-[200px] rounded-xl border-2 border-dashed border-foreground/30 bg-muted/30 p-5 hover:border-foreground/50 hover:bg-muted/50 transition-all duration-200 justify-center items-center text-foreground/60"
+          >
+            <Plus className="h-10 w-10 mb-2" />
+            <span className="text-sm font-medium">간단한 내용은 여기에 메모하세요</span>
+            <span className="text-xs mt-1">새로 만들기</span>
+          </Link>
           {items.length === 0 && !error && (
-            <li className="text-foreground/60 py-8 text-center">
-              {configured ? "아직 항목이 없습니다. 새로 만들기를 눌러 추가하세요." : "Supabase 설정 후 새로 만들기로 추가할 수 있습니다."}
-            </li>
+            <div className="sm:col-span-2 lg:col-span-2 flex items-center justify-center py-12 text-foreground/60 text-center">
+              {configured ? "아직 항목이 없습니다. 위 카드를 눌러 추가하세요." : "Supabase 설정 후 새로 만들기로 추가할 수 있습니다."}
+            </div>
           )}
-          {items.map((item) => (
-            <li key={item.id}>
-              <Link
-                href={`/prompts/${item.id}`}
-                className="flex items-center gap-3 p-4 rounded-lg border-2 border-foreground/20 bg-card hover:border-foreground/40 hover:shadow-[2px_2px_0px_0px] hover:shadow-foreground/20 transition-all"
-              >
-                <FileText className="h-5 w-5 flex-shrink-0 text-foreground/60" />
-                <div className="min-w-0 flex-1">
-                  <p className="font-medium truncate">{item.title}</p>
-                  <p className="text-sm text-foreground/60 truncate">
-                    {item.content?.slice(0, 80)}
-                    {item.content && item.content.length > 80 ? "…" : ""}
-                  </p>
-                </div>
-              </Link>
-            </li>
+          {items.map((item, index) => (
+            <PromptCard key={item?.id ?? index} item={item!} />
           ))}
-        </ul>
+        </div>
       </div>
     </main>
   )
