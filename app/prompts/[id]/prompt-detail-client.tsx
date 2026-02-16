@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { PromptForm } from "../prompt-form"
-import { Pencil } from "lucide-react"
+import { Pencil, Copy, Check } from "lucide-react"
 import type { PromptExample } from "@/lib/supabase/types"
 
 type SubmitAction = (formData: FormData) => Promise<void>
@@ -16,6 +16,28 @@ interface PromptDetailClientProps {
 
 export function PromptDetailClient({ item, submit, remove }: PromptDetailClientProps) {
   const [isEditing, setIsEditing] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const contentToCopy = item.content?.trim() ?? ""
+
+  async function handleCopyContent() {
+    if (!contentToCopy) return
+    try {
+      await navigator.clipboard.writeText(contentToCopy)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // fallback for older browsers
+      const textArea = document.createElement("textarea")
+      textArea.value = contentToCopy
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand("copy")
+      document.body.removeChild(textArea)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }
 
   const relatedLines = (item.related_links?.trim() ?? "").split(/\r?\n/).filter(Boolean)
   const attachments = item.attachment_urls ?? []
@@ -76,14 +98,26 @@ export function PromptDetailClient({ item, submit, remove }: PromptDetailClientP
           </div>
         )}
       </div>
-      <Button
-        type="button"
-        onClick={() => setIsEditing(true)}
-        className="border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground/20 hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px]"
-      >
-        <Pencil className="h-4 w-4" />
-        수정
-      </Button>
+      <div className="flex flex-wrap gap-2">
+        <Button
+          type="button"
+          onClick={handleCopyContent}
+          disabled={!contentToCopy}
+          variant="outline"
+          className="border-2 border-foreground shadow-[2px_2px_0px_0px] shadow-foreground/20 hover:shadow-[3px_3px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px]"
+        >
+          {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+          {copied ? "복사됨" : "내용 복사"}
+        </Button>
+        <Button
+          type="button"
+          onClick={() => setIsEditing(true)}
+          className="border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground/20 hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px]"
+        >
+          <Pencil className="h-4 w-4" />
+          수정
+        </Button>
+      </div>
     </>
   )
 }
