@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Link2, Paperclip } from "lucide-react"
 import type { PromptExample } from "@/lib/supabase/types"
