@@ -39,7 +39,7 @@ const apps = [
       "특정 페이지 삭제",
       "빠르고 간편한 처리"
     ],
-    link: "https://pdf-master-merge-delete-split-192259229963.us-west1.run.app/",
+    link: "https://pdf-master-190779861158.us-west1.run.app/",
     icon: <FileText className="h-6 w-6" />,
     accentColor: "bg-primary/20"
   },
@@ -171,11 +171,15 @@ const referenceLinks = [
     description: "Google에서 제공하는 AI 디자인 도구입니다. AI와 함께 디자인하고 시각적 콘텐츠를 만들 수 있습니다."
   },
   {
-    title: "NotebookLM 워터마크 제거",
-    links: [
-      { title: "SlideDeckCleaner", url: "https://www.slidedeckcleaner.com/" },
-      { title: "NotebookLM Remover (한국어)", url: "https://notebooklmremover.com/ko" }
-    ],
+    title: "SlideDeckCleaner",
+    url: "https://www.slidedeckcleaner.com/",
+    descriptionEmphasis: "NotebookLM 워터마크 제거.",
+    description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
+  },
+  {
+    title: "NotebookLM Remover (한국어)",
+    url: "https://notebooklmremover.com/ko",
+    descriptionEmphasis: "NotebookLM 워터마크 제거.",
     description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
   }
 ]
@@ -226,35 +230,24 @@ export default function Home() {
                     <LinkIcon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    {"links" in link && link.links ? (
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <span className="text-lg font-bold text-foreground">{link.title}</span>
-                        {link.links.map((item, i) => (
-                          <a
-                            key={i}
-                            href={item.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:underline inline-flex items-center gap-1 font-medium"
-                          >
-                            {item.title}
-                            <span className="text-sm">↗</span>
-                          </a>
-                        ))}
-                      </div>
-                    ) : (
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
-                      >
-                        {link.title}
-                        <span className="text-sm">↗</span>
-                      </a>
-                    )}
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
+                    >
+                      {link.title}
+                      <span className="text-sm">↗</span>
+                    </a>
                     <p className="text-sm text-foreground/70 mt-1">
-                      {link.description}
+                      {"descriptionEmphasis" in link && link.descriptionEmphasis ? (
+                        <>
+                          <span className="font-bold text-foreground">{link.descriptionEmphasis}</span>{" "}
+                          {link.description}
+                        </>
+                      ) : (
+                        link.description
+                      )}
                     </p>
                   </div>
                 </div>
