@@ -78,7 +78,7 @@ const apps = [
       "시험환경에 적합 계산 기능",
       "계산과정의 직관적인 설명"
     ],
-    link: "https://pro-exam-calculator-rice-house-style-190779861158.us-west1.run.app",
+    link: "https://pro-exam-calculator-rice-house-style-190779861158.us-west1.run.app/",
     icon: <Calculator className="h-6 w-6" />,
     accentColor: "bg-blue-500/20"
   },
