@@ -107,6 +107,19 @@ const apps = [
     link: "https://notebooklm-slide-cleaner-190779861158.us-west1.run.app",
     icon: <FileText className="h-6 w-6" />,
     accentColor: "bg-teal-500/20"
+  },
+  {
+    title: "논문 번역",
+    description: "영어 및 일본어로 된 논문을 한국어로 자동 번역해 드립니다. AI 기능을 사용하여 최대한 원본을 유지하면서 번역하도록 하여 학습에 도움을 줍니다.",
+    features: [
+      "영어 또는 일본어의 논문의 자동 번역",
+      "주요 용어에 대해 표준적인 언어 유지",
+      "최대한 원문의 내용을 유지하여 번역",
+      "수식 및 표도 원문과 동일하게 유지"
+    ],
+    link: "https://dcocument-translate-production.up.railway.app/",
+    icon: <Languages className="h-6 w-6" />,
+    accentColor: "bg-indigo-500/20"
   }
 ]
 
@@ -177,10 +190,20 @@ const referenceLinks = [
     description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
   },
   {
-    title: "NotebookLM Remover (한국어)",
+    title: "NotebookLM Remover",
     url: "https://notebooklmremover.com/ko",
-    descriptionEmphasis: "NotebookLM 워터마크 제거.",
+    secondaryLink: { label: "NotebookLM 워터마크 제거", url: "https://www.slidedeckcleaner.com/" },
     description: "NotebookLM 슬라이드·PDF·비디오에서 워터마크를 제거하는 무료 온라인 도구입니다. 브라우저에서 로컬로 처리하여 개인정보를 보호합니다."
+  },
+  {
+    title: "Vercel",
+    url: "https://vercel.com/",
+    description: "웹 앱을 빌드하고 배포하기 위한 AI 클라우드 플랫폼입니다. Next.js 등 다양한 프레임워크를 지원하며, Git 연동·자동 배포·글로벌 CDN을 제공합니다."
+  },
+  {
+    title: "Railway",
+    url: "https://railway.com/dashboard",
+    description: "앱과 서비스를 배포·운영하기 위한 클라우드 플랫폼입니다. 데이터베이스, 백엔드, 프론트엔드 등을 한 곳에서 배포하고 관리할 수 있습니다."
   }
 ]
 
@@ -230,15 +253,31 @@ export default function Home() {
                     <LinkIcon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-2"
-                    >
-                      {link.title}
-                      <span className="text-sm">↗</span>
-                    </a>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-1"
+                      >
+                        {link.title}
+                        <span className="text-sm">↗</span>
+                      </a>
+                      {"secondaryLink" in link && link.secondaryLink && (
+                        <>
+                          <span className="text-foreground/40">|</span>
+                          <a
+                            href={link.secondaryLink.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-lg font-bold text-primary hover:underline inline-flex items-center gap-1"
+                          >
+                            {link.secondaryLink.label}
+                            <span className="text-sm">↗</span>
+                          </a>
+                        </>
+                      )}
+                    </div>
                     <p className="text-sm text-foreground/70 mt-1">
                       {"descriptionEmphasis" in link && link.descriptionEmphasis ? (
                         <>
