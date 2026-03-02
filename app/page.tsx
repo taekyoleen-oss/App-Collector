@@ -39,7 +39,7 @@ const apps = [
       "특정 페이지 삭제",
       "빠르고 간편한 처리"
     ],
-    link: "https://pdf-master-190779861158.us-west1.run.app/",
+    link: "https://pdf-master-8bzg.vercel.app/",
     icon: <FileText className="h-6 w-6" />,
     accentColor: "bg-primary/20"
   },
@@ -78,7 +78,7 @@ const apps = [
       "시험환경에 적합 계산 기능",
       "계산과정의 직관적인 설명"
     ],
-    link: "https://pro-exam-calculator-rice-house-style-190779861158.us-west1.run.app/",
+    link: "https://pro-exam-calculator.vercel.app/",
     icon: <Calculator className="h-6 w-6" />,
     accentColor: "bg-blue-500/20"
   },
