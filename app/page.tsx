@@ -13,7 +13,7 @@ const apps = [
       "자연스러운 표현 학습",
       "AI 기반 맞춤 학습"
     ],
-    link: "https://gemini-english-tutor-192259229963.us-west1.run.app",
+    link: "https://english-tutor-six.vercel.app/",
     icon: <Languages className="h-6 w-6" />,
     accentColor: "bg-secondary/40"
   },
