@@ -91,7 +91,7 @@ const apps = [
       "다양한 출력 형식 지원",
       "수식 복사·붙여넣기 편의"
     ],
-    link: "https://mathocr-formula-to-office-converter-190779861158.us-west1.run.app/",
+    link: "https://mathocr-formula-in-office-converter.vercel.app/",
     icon: <SquareFunction className="h-6 w-6" />,
     accentColor: "bg-amber-500/20"
   },
