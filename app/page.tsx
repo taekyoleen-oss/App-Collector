@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool } from "lucide-react"
 
 const apps = [
   {
@@ -81,6 +81,19 @@ const apps = [
     link: "https://pro-exam-calculator.vercel.app/",
     icon: <Calculator className="h-6 w-6" />,
     accentColor: "bg-blue-500/20"
+  },
+  {
+    title: "보험수리 화이트보드",
+    description: "보험수리 계산을 편리하게 할 수 있는 보드로써 수리 기호 등이 포함되어 있음",
+    features: [
+      "보험수리 계산용 화이트보드",
+      "수리 기호·KaTeX 수식 입력",
+      "타임라인·화살표 등 도형 지원",
+      "PNG 내보내기·저장"
+    ],
+    link: "https://actuarial-whiteboard.vercel.app/",
+    icon: <PenTool className="h-6 w-6" />,
+    accentColor: "bg-slate-500/20"
   },
   {
     title: "이미지 수식변환기",
