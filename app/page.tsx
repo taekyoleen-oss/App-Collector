@@ -225,14 +225,14 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <SiteNav />
       {/* Header */}
-      <header className="border-b-2 border-foreground bg-card">
-        <div className="container mx-auto px-4 py-6">
+      <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
           <h1 className="text-3xl md:text-4xl font-bold text-center">
-            <span className="inline-block px-4 py-2 bg-primary text-primary-foreground border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground">
+            <span className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-2xl shadow-lg shadow-primary/25">
               App Playground
             </span>
           </h1>
-          <p className="text-center mt-4 text-lg text-foreground/80">
+          <p className="text-center mt-4 text-lg text-muted-foreground">
             다양한 유틸리티 앱을 테스트해 보세요
           </p>
         </div>
@@ -248,10 +248,10 @@ export default function Home() {
       </section>
 
       {/* Reference Links Section */}
-      <section id="reference-links" className="container mx-auto px-4 py-12 border-t-2 border-foreground/20 scroll-mt-24">
+      <section id="reference-links" className="container mx-auto px-4 py-12 border-t border-border/40 scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-            <span className="inline-block px-4 py-2 bg-muted border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground">
+            <span className="inline-block px-5 py-2.5 bg-muted rounded-xl shadow-sm">
               참고 링크
             </span>
           </h2>
@@ -259,10 +259,10 @@ export default function Home() {
             {referenceLinks.map((link, index) => (
               <div
                 key={index}
-                className="border-2 border-foreground bg-card p-4 shadow-[3px_3px_0px_0px] shadow-foreground hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all duration-200"
+                className="border border-border/60 bg-card p-4 rounded-xl shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-200"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-background border-2 border-foreground flex-shrink-0">
+                  <div className="p-2.5 bg-muted/80 rounded-lg flex-shrink-0">
                     <LinkIcon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
@@ -310,11 +310,11 @@ export default function Home() {
       </section>
 
       {/* AI 도구 설명 Section - 파스텔 톤 */}
-      <section id="ai-tools" className="border-t-2 border-foreground/20 scroll-mt-24 bg-[oklch(0.98_0.015_85)]">
+      <section id="ai-tools" className="border-t border-border/40 scroll-mt-24 bg-muted/30">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-              <span className="inline-block px-4 py-2 bg-[oklch(0.94_0.04_75)] border-2 border-amber-200/80 shadow-[3px_3px_0px_0px] shadow-amber-300/40">
+              <span className="inline-block px-5 py-2.5 bg-[oklch(0.94_0.04_75)] rounded-xl shadow-sm border border-amber-200/50">
                 AI 도구 설명
               </span>
             </h2>
@@ -327,9 +327,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t-2 border-foreground bg-card mt-auto">
+      <footer className="border-t border-border/60 bg-card/50 mt-auto">
         <div className="container mx-auto px-4 py-6 text-center">
-          <p className="text-sm text-foreground/70">
+          <p className="text-sm text-muted-foreground">
             더 많은 앱이 곧 추가됩니다!
           </p>
         </div>

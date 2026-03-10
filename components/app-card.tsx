@@ -35,20 +35,20 @@ function FeatureItem({ feature, index }: { feature: string; index: number }) {
   if (table) {
     return (
       <li key={index} className="list-none -mx-1">
-        <div className="border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground bg-background/50 rounded-md overflow-hidden">
-          <div className="text-xs font-bold text-foreground/80 py-1.5 px-3 border-b border-foreground/30 bg-muted/40">
+        <div className="border border-border/50 shadow-sm bg-background/60 rounded-lg overflow-hidden">
+          <div className="text-xs font-bold text-foreground/80 py-1.5 px-3 border-b border-border/50 bg-muted/40">
             {table.label}
           </div>
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="border-b-2 border-foreground bg-muted/60">
+              <tr className="border-b border-border bg-muted/60">
                 <th className="text-left font-bold py-2 px-3 w-[4.5rem]">브랜드</th>
                 <th className="text-left font-bold py-2 px-3">모델</th>
               </tr>
             </thead>
             <tbody>
               {table.rows.map(([brand, model], i) => (
-                <tr key={i} className="border-b border-foreground/30 last:border-b-0">
+                <tr key={i} className="border-b border-border/50 last:border-b-0">
                   <td className="py-1.5 px-3 font-medium">{brand}</td>
                   <td className="py-1.5 px-3 text-foreground/90">{model}</td>
                 </tr>
@@ -69,10 +69,10 @@ function FeatureItem({ feature, index }: { feature: string; index: number }) {
 
 export function AppCard({ title, description, features, link, icon, accentColor }: AppCardProps) {
   return (
-    <Card className={`border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 flex flex-col h-full ${accentColor}`}>
+    <Card className={`border border-border/60 shadow-md hover:shadow-lg transition-all duration-200 flex flex-col h-full rounded-xl overflow-hidden ${accentColor}`}>
       <CardHeader>
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-background border-2 border-foreground">
+          <div className="p-3 bg-background/80 rounded-xl shadow-sm">
             {icon}
           </div>
           <CardTitle className="text-xl font-bold">{title}</CardTitle>
@@ -89,7 +89,7 @@ export function AppCard({ title, description, features, link, icon, accentColor 
         </ul>
         <Button 
           asChild 
-          className="w-full mt-auto border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-foreground hover:shadow-[4px_4px_0px_0px] hover:translate-x-[-1px] hover:translate-y-[-1px] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all duration-150 font-bold"
+          className="w-full mt-auto rounded-xl shadow-sm hover:shadow-md transition-all duration-200 font-semibold"
         >
           <a href={link} target="_blank" rel="noopener noreferrer">
             앱 열기

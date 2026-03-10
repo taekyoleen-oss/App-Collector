@@ -11,14 +11,14 @@ const navItems = [
 
 export function SiteNav() {
   return (
-    <nav className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm py-2">
+    <nav className="sticky top-0 z-10 bg-background/80 backdrop-blur-md border-b border-border/40 py-3">
       <div className="container mx-auto px-4">
-        <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
+        <ul className="flex flex-wrap items-center justify-center gap-1 text-sm">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-foreground/80 hover:text-foreground hover:underline"
+                className="block px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-muted/60 transition-colors"
               >
                 {item.label}
               </Link>
