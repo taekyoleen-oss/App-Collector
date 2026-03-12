@@ -15,7 +15,8 @@ const apps = [
     ],
     link: "https://english-tutor-six.vercel.app/",
     icon: <Languages className="h-6 w-6" />,
-    accentColor: "bg-secondary/40"
+    accentColor: "bg-secondary/20",
+    buttonAccent: "bg-secondary/25 text-foreground/90 border-secondary/30 hover:bg-secondary/35"
   },
   {
     title: "English Buddy(MP3)",
@@ -28,7 +29,8 @@ const apps = [
     ],
     link: "https://english-buddy-866656523453.us-west1.run.app/",
     icon: <Headphones className="h-6 w-6" />,
-    accentColor: "bg-emerald-500/20"
+    accentColor: "bg-emerald-500/20",
+    buttonAccent: "bg-emerald-500/25 text-emerald-800 border-emerald-500/30 hover:bg-emerald-500/35 dark:text-emerald-200"
   },
   {
     title: "PDF Master",
@@ -41,7 +43,8 @@ const apps = [
     ],
     link: "https://pdf-master-8bzg.vercel.app/",
     icon: <FileText className="h-6 w-6" />,
-    accentColor: "bg-primary/20"
+    accentColor: "bg-primary/20",
+    buttonAccent: "bg-primary/20 text-primary border-primary/30 hover:bg-primary/30"
   },
   {
     title: "Magic Eraser AI",
@@ -54,7 +57,8 @@ const apps = [
     ],
     link: "https://magic-eraser-ai-956594633589.us-west1.run.app",
     icon: <Eraser className="h-6 w-6" />,
-    accentColor: "bg-accent/40"
+    accentColor: "bg-accent/40",
+    buttonAccent: "bg-accent/50 text-accent-foreground border-accent/60 hover:bg-accent/70"
   },
   {
     title: "StyleSync AI",
@@ -67,7 +71,8 @@ const apps = [
     ],
     link: "https://stylesync-ai-292738906478.us-west1.run.app/",
     icon: <Image className="h-6 w-6" />,
-    accentColor: "bg-purple-500/20"
+    accentColor: "bg-purple-500/20",
+    buttonAccent: "bg-purple-500/25 text-purple-800 border-purple-500/30 hover:bg-purple-500/35 dark:text-purple-200"
   },
   {
     title: "Actuary Pro Calc",
@@ -80,7 +85,8 @@ const apps = [
     ],
     link: "https://pro-exam-calculator.vercel.app/",
     icon: <Calculator className="h-6 w-6" />,
-    accentColor: "bg-blue-500/20"
+    accentColor: "bg-blue-500/20",
+    buttonAccent: "bg-blue-500/25 text-blue-800 border-blue-500/30 hover:bg-blue-500/35 dark:text-blue-200"
   },
   {
     title: "보험수리 화이트보드",
@@ -93,7 +99,8 @@ const apps = [
     ],
     link: "https://actuarial-whiteboard.vercel.app/",
     icon: <PenTool className="h-6 w-6" />,
-    accentColor: "bg-slate-500/20"
+    accentColor: "bg-slate-500/20",
+    buttonAccent: "bg-slate-500/25 text-slate-800 border-slate-500/30 hover:bg-slate-500/35 dark:text-slate-200"
   },
   {
     title: "이미지 수식변환기",
@@ -106,7 +113,8 @@ const apps = [
     ],
     link: "https://mathocr-formula-in-office-converter.vercel.app/",
     icon: <SquareFunction className="h-6 w-6" />,
-    accentColor: "bg-amber-500/20"
+    accentColor: "bg-amber-500/20",
+    buttonAccent: "bg-amber-500/25 text-amber-800 border-amber-500/30 hover:bg-amber-500/35 dark:text-amber-200"
   },
   {
     title: "NotebookLM Slide Cleaner",
@@ -119,7 +127,8 @@ const apps = [
     ],
     link: "https://notebooklm-slide-cleaner-190779861158.us-west1.run.app",
     icon: <FileText className="h-6 w-6" />,
-    accentColor: "bg-teal-500/20"
+    accentColor: "bg-teal-500/20",
+    buttonAccent: "bg-teal-500/25 text-teal-800 border-teal-500/30 hover:bg-teal-500/35 dark:text-teal-200"
   },
   {
     title: "논문 번역",
@@ -132,7 +141,8 @@ const apps = [
     ],
     link: "https://dcocument-translate-production.up.railway.app/",
     icon: <Languages className="h-6 w-6" />,
-    accentColor: "bg-indigo-500/20"
+    accentColor: "bg-indigo-500/20",
+    buttonAccent: "bg-indigo-500/25 text-indigo-800 border-indigo-500/30 hover:bg-indigo-500/35 dark:text-indigo-200"
   }
 ]
 
