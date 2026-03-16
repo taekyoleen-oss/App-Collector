@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles } from "lucide-react"
 
 const apps = [
   {
@@ -143,6 +143,48 @@ const apps = [
     icon: <Languages className="h-6 w-6" />,
     accentColor: "bg-indigo-500/20",
     buttonAccent: "bg-indigo-500/25 text-indigo-800 border-indigo-500/30 hover:bg-indigo-500/35 dark:text-indigo-200"
+  },
+  {
+    title: "Todo-Memo",
+    description: "일정 관리와 메모를 한 화면에서 함께 관리하는 앱입니다. 개인별 로그인으로 나만의 할 일·메모를 저장하며, 외부 DB를 사용해 네이버 메모처럼 안정적으로 보관합니다.",
+    features: [
+      "일정(할 일)과 메모를 한 번에 관리",
+      "개인별 계정으로 데이터 분리 저장",
+      "외부 DB 연동으로 안정적 보관",
+      "네이버 메모와 유사한 사용 경험"
+    ],
+    link: "https://todo-memo-sand.vercel.app/dashboard",
+    icon: <ListTodo className="h-6 w-6" />,
+    accentColor: "bg-rose-500/20",
+    buttonAccent: "bg-rose-500/25 text-rose-800 border-rose-500/30 hover:bg-rose-500/35 dark:text-rose-200"
+  },
+  {
+    title: "보험 뉴스 대시보드",
+    description: "보험 관련 기사를 AI가 오전 8시·오후 2시에 자동으로 발췌·정리하는 앱입니다. 업계동향, 상품, 언더라이팅, 정책 등 카테고리별로 관리하며, 요약만으로 기사 내용을 빠르게 확인할 수 있습니다.",
+    features: [
+      "오전 8시·오후 2시 자동 수집 및 AI 정리",
+      "업계동향·상품·언더라이팅·정책 등 카테고리 구분",
+      "요약으로 기사 열지 않고 내용 확인",
+      "보험 뉴스 한곳에서 대시보드로 조회"
+    ],
+    link: "https://taekyoleen-oss-insurance-article.vercel.app/",
+    icon: <Newspaper className="h-6 w-6" />,
+    accentColor: "bg-sky-500/20",
+    buttonAccent: "bg-sky-500/25 text-sky-800 border-sky-500/30 hover:bg-sky-500/35 dark:text-sky-200"
+  },
+  {
+    title: "비개발자의 개발실",
+    description: "바이브코딩으로 만든 앱을 공유하고 함께 발전시키는 공간입니다. 필요 시 요청을 받아 앱을 바이브코딩으로 제작해 드리며, 프롬프트·도구·노하우 등 정보도 공유합니다.",
+    features: [
+      "바이브코딩으로 만든 앱 공유 및 소개",
+      "요청 시 바이브코딩으로 앱 개발 지원",
+      "프롬프트·도구·노하우 정보 공유",
+      "비개발자도 AI로 앱을 만드는 경험 공유"
+    ],
+    link: "https://www.vibecodinglab.ai.kr/",
+    icon: <Sparkles className="h-6 w-6" />,
+    accentColor: "bg-violet-500/20",
+    buttonAccent: "bg-violet-500/25 text-violet-800 border-violet-500/30 hover:bg-violet-500/35 dark:text-violet-200"
   }
 ]
 
