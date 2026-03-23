@@ -120,12 +120,12 @@ const apps = [
     title: "NotebookLM Slide Cleaner",
     description: "NotebookLM 슬라이드의 워터마크를 자동으로 제거하고, 다른 영역의 표시도 일괄 제거할 수 있습니다. 파일 내 페이지 이동·삭제 등 편집도 가능합니다.",
     features: [
-      "NotebookLM 워터마크 자동 제거",
+      "NotebookLM의 pdf 및 PPT의 워터마크 자동 제거",
       "다른 영역 표시 일괄 제거",
       "파일 내 페이지 이동·삭제",
       "슬라이드·PDF 정리 편의"
     ],
-    link: "https://notebooklm-slide-cleaner-190779861158.us-west1.run.app",
+    link: "https://notebook-lm-slide-cleaner.vercel.app/",
     icon: <FileText className="h-6 w-6" />,
     accentColor: "bg-teal-500/20",
     buttonAccent: "bg-teal-500/25 text-teal-800 border-teal-500/30 hover:bg-teal-500/35 dark:text-teal-200"
