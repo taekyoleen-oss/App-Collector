@@ -1,13 +1,13 @@
-"use client"
-
 import Link from "next/link"
 
 const navItems = [
   { href: "/", label: "카드보기" },
-  { href: "/#reference-links", label: "참고 링크" },
-  { href: "/#ai-tools", label: "AI 도구 설명" },
+  { href: "/#reference-links", label: "참고 링크", isHash: true },
+  { href: "/#ai-tools", label: "AI 도구 설명", isHash: true },
   { href: "/prompts", label: "프롬프트 예제" },
 ]
+
+const linkClass = "block px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-muted/60 transition-colors"
 
 export function SiteNav() {
   return (
@@ -16,12 +16,11 @@ export function SiteNav() {
         <ul className="flex flex-wrap items-center justify-center gap-1 text-sm">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className="block px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-muted/60 transition-colors"
-              >
-                {item.label}
-              </Link>
+              {item.isHash ? (
+                <a href={item.href} className={linkClass}>{item.label}</a>
+              ) : (
+                <Link href={item.href} className={linkClass}>{item.label}</Link>
+              )}
             </li>
           ))}
         </ul>
