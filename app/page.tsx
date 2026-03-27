@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays } from "lucide-react"
 
 const apps = [
   {
@@ -199,6 +199,20 @@ const apps = [
     icon: <Presentation className="h-6 w-6" />,
     accentColor: "bg-orange-500/20",
     buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200"
+  },
+  {
+    title: "기업 그룹웨어",
+    description: "소규모 기업을 위한 일정 공유·관리 앱입니다. 개인 일정과 팀/전체 일정을 나누어 공유할 수 있으며, 공지사항과 To-Do도 함께 관리할 수 있습니다.",
+    features: [
+      "개인 일정 및 팀·전체 일정 공유",
+      "공지사항 등록 및 조회",
+      "To-Do 관리 기능",
+      "소규모 기업에 최적화된 그룹웨어"
+    ],
+    link: "https://company-groupware.onrender.com/",
+    icon: <CalendarDays className="h-6 w-6" />,
+    accentColor: "bg-cyan-500/20",
+    buttonAccent: "bg-cyan-500/25 text-cyan-800 border-cyan-500/30 hover:bg-cyan-500/35 dark:text-cyan-200"
   }
 ]
 
