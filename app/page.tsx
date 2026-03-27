@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation } from "lucide-react"
 
 const apps = [
   {
@@ -185,6 +185,20 @@ const apps = [
     icon: <Sparkles className="h-6 w-6" />,
     accentColor: "bg-violet-500/20",
     buttonAccent: "bg-violet-500/25 text-violet-800 border-violet-500/30 hover:bg-violet-500/35 dark:text-violet-200"
+  },
+  {
+    title: "강의 지원 앱",
+    description: "PDF 파일에 대해 전체보기 및 펜, 네모, 원 등 다양한 시각적 요소를 추가해 강의를 지원하는 앱입니다.",
+    features: [
+      "PDF 파일 페이지 이동 및 전체보기 지원",
+      "펜, 네모, 원 등 다양한 그리기 도구",
+      "직관적인 시각적 요소를 통한 강조 표시",
+      "효율적인 강의 진행을 돕는 보조 도구 모음"
+    ],
+    link: "https://lecture-assistant-dmmr.onrender.com/",
+    icon: <Presentation className="h-6 w-6" />,
+    accentColor: "bg-orange-500/20",
+    buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200"
   }
 ]
 

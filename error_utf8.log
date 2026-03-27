@@ -1,0 +1,91 @@
+﻿
+> app-collecter@0.1.0 dev C:\00 App Project\App Collecter
+> next dev
+
+node.exe : node:internal/modu
+les/cjs/loader:1386
+위치 C:\Users\tklee\AppData\Roa
+ming\npm\pnpm.ps1:24 문자:5
++     & "node$exe"  "$basedir
+/node_modules/pnpm/bin/pnpm.c
+js" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo           
+   : NotSpeci    fied: (node:
+inter    nal/modules/cjs/l   
+ oader:1386:String    ) [], R
+emoteExcep    tion
+    + FullyQualifiedE    rror
+Id : NativeCo    mmandError
+ 
+  throw err;
+  ^
+
+Error: Cannot find module 'st
+yled-jsx/package.json'
+Require stack:
+- C:\00 App Project\App Colle
+cter\node_modules\.pnpm\next@
+16.0.10_react-dom@19.2.0_reac
+t@19.2.0__react@19.2.0\node_m
+odules\next\dist\server\requi
+re-hook.js
+- C:\00 App Project\App Colle
+cter\node_modules\.pnpm\next@
+16.0.10_react-dom@19.2.0_reac
+t@19.2.0__react@19.2.0\node_m
+odules\next\dist\bin\next
+    at Function._resolveFilen
+ame (node:internal/modules/cj
+s/loader:1383:15)
+    at resolve (node:internal
+/modules/helpers:157:19)
+    at Object.<anonymous> (C:
+\00 App Project\App Collecter
+\node_modules\.pnpm\next@16.0
+.10_react-dom@19.2.0_react@19
+.2.0__react@19.2.0\node_modul
+es\next\dist\server\require-h
+ook.js:39:32)
+    at Module._compile (node:
+internal/modules/cjs/loader:1
+706:14)
+    at Object..js (node:inter
+nal/modules/cjs/loader:1839:1
+0)
+    at Module.load (node:inte
+rnal/modules/cjs/loader:1441:
+32)
+    at Function._load (node:i
+nternal/modules/cjs/loader:12
+63:12)
+    at TracingChannel.traceSy
+nc (node:diagnostics_channel:
+322:14)
+    at wrapModuleLoad (node:i
+nternal/modules/cjs/loader:23
+7:24)
+    at Module.require (node:i
+nternal/modules/cjs/loader:14
+63:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\00 App Project\\App 
+Collecter\\node_modules\\.pnp
+m\\next@16.0.10_react-dom@19.
+2.0_react@19.2.0__react@19.2.
+0\\node_modules\\next\\dist\\
+server\\require-hook.js',
+    'C:\\00 App Project\\App 
+Collecter\\node_modules\\.pnp
+m\\next@16.0.10_react-dom@19.
+2.0_react@19.2.0__react@19.2.
+0\\node_modules\\next\\dist\\
+bin\\next'
+  ]
+}
+
+Node.js v22.20.0
+?덭LIFECYCLE??Command failed with exit code 1.
