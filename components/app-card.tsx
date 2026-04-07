@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, FileText } from "lucide-react"
 
 interface AppCardProps {
   title: string
@@ -12,6 +12,10 @@ interface AppCardProps {
   accentColor: string
   /** 카드 톤과 조화되는 앱 열기 버튼용 클래스 (배경·글자·테두리·호버) */
   buttonAccent?: string
+  /** 앱 설명 PDF 파일명 (public 폴더 내 파일명) */
+  pdfLink?: string
+  /** PDF 링크 버튼의 텍스트 (기본값: '설명서 보기 (PDF)') */
+  pdfLabel?: string
 }
 
 /** "대상: 브랜드(모델), ..." 형식 문자열을 { label, rows: [브랜드, 모델][] } 로 파싱 */
@@ -69,7 +73,7 @@ function FeatureItem({ feature, index }: { feature: string; index: number }) {
   )
 }
 
-export function AppCard({ title, description, features, link, icon, accentColor, buttonAccent }: AppCardProps) {
+export function AppCard({ title, description, features, link, icon, accentColor, buttonAccent, pdfLink, pdfLabel = "설명서 보기 (PDF)" }: AppCardProps) {
   return (
     <Card className={`border border-border/60 shadow-md hover:shadow-lg transition-all duration-200 flex flex-col h-full rounded-xl overflow-hidden ${accentColor}`}>
       <CardHeader>
@@ -89,15 +93,29 @@ export function AppCard({ title, description, features, link, icon, accentColor,
             <FeatureItem key={index} feature={feature} index={index} />
           ))}
         </ul>
-        <Button 
-          asChild 
-          className={`w-full mt-auto rounded-xl shadow-sm font-semibold transition-all duration-200 ${buttonAccent ?? "bg-primary/15 text-primary hover:bg-primary/25 border border-primary/20"}`}
-        >
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            앱 열기
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </a>
-        </Button>
+        <div className="mt-auto flex flex-col gap-2">
+          <Button 
+            asChild 
+            className={`w-full rounded-xl shadow-sm font-semibold transition-all duration-200 ${buttonAccent ?? "bg-primary/15 text-primary hover:bg-primary/25 border border-primary/20"}`}
+          >
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              앱 열기
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+          {pdfLink && (
+            <Button 
+              asChild 
+              variant="outline"
+              className="w-full rounded-xl shadow-sm font-semibold transition-all duration-200 bg-background/50 hover:bg-background border-border/50 hover:border-border"
+            >
+              <a href={`/api/view-pdf?file=${encodeURIComponent(pdfLink)}`} target="_blank" rel="noopener noreferrer">
+                {pdfLabel}
+                <FileText className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          )}
+        </div>
       </CardContent>
     </Card>
   )

@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase } from "lucide-react"
 
 const apps = [
   {
@@ -201,7 +201,7 @@ const apps = [
     buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200"
   },
   {
-    title: "기업 그룹웨어",
+    title: "사내 그룹웨어",
     description: "소규모 기업을 위한 일정 공유·관리 앱입니다. 개인 일정과 팀/전체 일정을 나누어 공유할 수 있으며, 공지사항과 To-Do도 함께 관리할 수 있습니다.",
     features: [
       "개인 일정 및 팀·전체 일정 공유",
@@ -212,7 +212,55 @@ const apps = [
     link: "https://company-groupware.onrender.com/",
     icon: <CalendarDays className="h-6 w-6" />,
     accentColor: "bg-cyan-500/20",
-    buttonAccent: "bg-cyan-500/25 text-cyan-800 border-cyan-500/30 hover:bg-cyan-500/35 dark:text-cyan-200"
+    buttonAccent: "bg-cyan-500/25 text-cyan-800 border-cyan-500/30 hover:bg-cyan-500/35 dark:text-cyan-200",
+    pdfLink: "사내 그룹웨어.pdf",
+    pdfLabel: "소개자료"
+  },
+  {
+    title: "보험료 자동산출 시스템",
+    description: "생명보험 보험료 및 책임준비금을 모듈 형식으로 자동 산출하는 앱입니다. 간단한 클릭만으로 보험료를 산출할 수 있으며, 간결화된 방식으로 전체 흐름 및 산출결과를 파악할 수 있습니다.",
+    features: [
+      "모듈형 생명보험 보험료 산출",
+      "책임준비금 자동 계산",
+      "간결한 흐름 및 결과 조회",
+      "클릭만으로 빠른 산출"
+    ],
+    link: "https://life-matrix-flow-new.vercel.app/",
+    icon: <Activity className="h-6 w-6" />,
+    accentColor: "bg-green-500/20",
+    buttonAccent: "bg-green-500/25 text-green-800 border-green-500/30 hover:bg-green-500/35 dark:text-green-200",
+    pdfLink: "보험료_자동산출_설명서.pdf",
+    pdfLabel: "소개자료"
+  },
+  {
+    title: "머신러닝 자동 플로우",
+    description: "머신러닝을 모듈화하고 이를 파이썬으로 구현하여 검증이 가능하고 다양한 모델을 조합하여 산출이 가능합니다.",
+    features: [
+      "머신러닝 모듈화 및 파이썬 구현",
+      "다양한 모델 조합 산출",
+      "결과 검증 기능",
+      "자동화된 ML 워크플로우"
+    ],
+    link: "https://ml-auto-flow-new.vercel.app/",
+    icon: <Network className="h-6 w-6" />,
+    accentColor: "bg-blue-600/20",
+    buttonAccent: "bg-blue-600/25 text-blue-800 border-blue-600/30 hover:bg-blue-600/35 dark:text-blue-200",
+    pdfLink: "머신러닝_자동플로우_설명서.pdf"
+  },
+  {
+    title: "재보험 정청산 관리",
+    description: "보험료 배분 및 재보험 특성에 맞게 정산 및 청산, 그리고 보고서를 생성해 내는 앱입니다. (테스트용 계정: test@reinsurance.com / password)",
+    features: [
+      "보험료 배분 및 정산",
+      "재보험 특화 청산 관리",
+      "정산 보고서 자동 생성",
+      "빠른 재보험 결산 흐름 파악"
+    ],
+    link: "https://reinsurance-settlement.vercel.app/login",
+    icon: <Briefcase className="h-6 w-6" />,
+    accentColor: "bg-indigo-600/20",
+    buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
+    pdfLink: "재보험_정청산_관리_설명서.pdf"
   }
 ]
 
