@@ -170,7 +170,9 @@ const apps = [
     link: "https://taekyoleen-oss-insurance-article.vercel.app/",
     icon: <Newspaper className="h-6 w-6" />,
     accentColor: "bg-sky-500/20",
-    buttonAccent: "bg-sky-500/25 text-sky-800 border-sky-500/30 hover:bg-sky-500/35 dark:text-sky-200"
+    buttonAccent: "bg-sky-500/25 text-sky-800 border-sky-500/30 hover:bg-sky-500/35 dark:text-sky-200",
+    pdfLink: "Insurance_article.pdf",
+    pdfLabel: "설명자료"
   },
   {
     title: "비개발자의 개발실",
@@ -198,7 +200,9 @@ const apps = [
     link: "https://lecture-assistant-dmmr.onrender.com/",
     icon: <Presentation className="h-6 w-6" />,
     accentColor: "bg-orange-500/20",
-    buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200"
+    buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200",
+    pdfLink: "lecture-assistant.pdf",
+    pdfLabel: "소개자료"
   },
   {
     title: "사내 그룹웨어",
@@ -260,7 +264,8 @@ const apps = [
     icon: <Briefcase className="h-6 w-6" />,
     accentColor: "bg-indigo-600/20",
     buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
-    pdfLink: "재보험_정청산_관리_설명서.pdf"
+    pdfLink: "재보험_정청산시스템_소개.pdf",
+    pdfLabel: "설명자료"
   }
 ]
 
@@ -272,14 +277,14 @@ const aiTools = [
     href: "/api/view-pdf?file=" + encodeURIComponent("bananaNL 및 Grabbit 으로 노트북ML 강화.pdf"),
     // ZIP을 public/ai-tools/에 풀어 'bananaNL 및 Grabbit 으로 노트북ML 강화' 폴더가 생기면 이미지 뷰어로 바로 표시됨 (개수는 API가 자동 조회)
     imagesBaseUrl: "/ai-tools/bananaNL 및 Grabbit 으로 노트북ML 강화",
-    imageExt: "png",
+    imageExt: "png" as const,
   },
   {
     title: "Cursor 로 Supabase 설정하기",
     description: "Cursor에서 Supabase DB 구성부터 웹 연동까지 설정 과정을 정리했습니다.",
     href: "#",
     imagesBaseUrl: "/ai-tools/Cursor로 Supabase 설정 과정",
-    imageExt: "png",
+    imageExt: "png" as const,
   },
   {
     title: "ChatGPT 활용 가이드",
