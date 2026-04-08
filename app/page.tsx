@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck } from "lucide-react"
 
 const apps = [
   {
@@ -266,6 +266,20 @@ const apps = [
     buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
     pdfLink: "재보험_정청산시스템_소개.pdf",
     pdfLabel: "설명자료"
+  },
+  {
+    title: "보험 상품 검증 플랫폼",
+    description: "보험사와 외부 검증기관의 상품 및 위험률을 검증하고 관리하는 앱으로 상호간에 검증과정 및 그 결과를 각각 보여주고 이를 관리할 수 있습니다.",
+    features: [
+      "보험사 및 검증기관 양방향 관리",
+      "상품 및 위험률 검증 과정 기록/관리",
+      "검증 단계별 결과 실시간 공유",
+      "투명하고 효율적인 검증 프로세스 지원"
+    ],
+    link: "https://insurer-product-proof-platform.onrender.com/",
+    icon: <ShieldCheck className="h-6 w-6" />,
+    accentColor: "bg-fuchsia-500/20",
+    buttonAccent: "bg-fuchsia-500/25 text-fuchsia-800 border-fuchsia-500/30 hover:bg-fuchsia-500/35 dark:text-fuchsia-200"
   }
 ]
 
