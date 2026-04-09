@@ -172,7 +172,7 @@ const apps = [
     accentColor: "bg-sky-500/20",
     buttonAccent: "bg-sky-500/25 text-sky-800 border-sky-500/30 hover:bg-sky-500/35 dark:text-sky-200",
     pdfLink: "Insurance_article.pdf",
-    pdfLabel: "설명자료"
+    pdfLabel: "소개자료"
   },
   {
     title: "비개발자의 개발실",
@@ -249,7 +249,8 @@ const apps = [
     icon: <Network className="h-6 w-6" />,
     accentColor: "bg-blue-600/20",
     buttonAccent: "bg-blue-600/25 text-blue-800 border-blue-600/30 hover:bg-blue-600/35 dark:text-blue-200",
-    pdfLink: "머신러닝_자동플로우_설명서.pdf"
+    pdfLink: "머신러닝_자동플로우_설명서.pdf",
+    pdfLabel: "소개자료"
   },
   {
     title: "재보험 정청산 관리",
@@ -265,7 +266,7 @@ const apps = [
     accentColor: "bg-indigo-600/20",
     buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
     pdfLink: "재보험_정청산시스템_소개.pdf",
-    pdfLabel: "설명자료"
+    pdfLabel: "소개자료"
   },
   {
     title: "보험 상품 검증 플랫폼",
@@ -279,7 +280,9 @@ const apps = [
     link: "https://insurer-product-proof-platform.onrender.com/",
     icon: <ShieldCheck className="h-6 w-6" />,
     accentColor: "bg-fuchsia-500/20",
-    buttonAccent: "bg-fuchsia-500/25 text-fuchsia-800 border-fuchsia-500/30 hover:bg-fuchsia-500/35 dark:text-fuchsia-200"
+    buttonAccent: "bg-fuchsia-500/25 text-fuchsia-800 border-fuchsia-500/30 hover:bg-fuchsia-500/35 dark:text-fuchsia-200",
+    pdfLink: "보험상품 검증 플랫폼.pdf",
+    pdfLabel: "소개자료"
   }
 ]
 
