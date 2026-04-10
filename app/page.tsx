@@ -261,7 +261,7 @@ const apps = [
       "정산 보고서 자동 생성",
       "빠른 재보험 결산 흐름 파악"
     ],
-    link: "https://reinsurance-settlement.vercel.app/login",
+    link: "https://insurer-product-proof-platform-ojm9.vercel.app/",
     icon: <Briefcase className="h-6 w-6" />,
     accentColor: "bg-indigo-600/20",
     buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
@@ -277,7 +277,7 @@ const apps = [
       "검증 단계별 결과 실시간 공유",
       "투명하고 효율적인 검증 프로세스 지원"
     ],
-    link: "https://insurer-product-proof-platform.onrender.com/",
+    link: "https://insurer-product-proof-platform-three.vercel.app/",
     icon: <ShieldCheck className="h-6 w-6" />,
     accentColor: "bg-fuchsia-500/20",
     buttonAccent: "bg-fuchsia-500/25 text-fuchsia-800 border-fuchsia-500/30 hover:bg-fuchsia-500/35 dark:text-fuchsia-200",
