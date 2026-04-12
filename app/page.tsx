@@ -69,7 +69,7 @@ const apps = [
       "유사한 스타일 이미지 생성",
       "고품질 변환 결과"
     ],
-    link: "https://stylesync-ai-292738906478.us-west1.run.app/",
+    link: "https://style-sync-ai-peach.vercel.app/",
     icon: <Image className="h-6 w-6" />,
     accentColor: "bg-purple-500/20",
     buttonAccent: "bg-purple-500/25 text-purple-800 border-purple-500/30 hover:bg-purple-500/35 dark:text-purple-200"
