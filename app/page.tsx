@@ -1,7 +1,7 @@
 import { AppCard } from "@/components/app-card"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck, Flame } from "lucide-react"
 
 const apps = [
   {
@@ -283,6 +283,20 @@ const apps = [
     buttonAccent: "bg-fuchsia-500/25 text-fuchsia-800 border-fuchsia-500/30 hover:bg-fuchsia-500/35 dark:text-fuchsia-200",
     pdfLink: "보험상품 검증 플랫폼.pdf",
     pdfLabel: "소개자료"
+  },
+  {
+    title: "화재보험 보험료 자동산출",
+    description: "일반화재보험 및 장기화재보험의 보험료를 간단한 클릭만으로 산출하는 앱입니다. AI가 산출 내역을 평가하며, 필요시 인수 거절 등의 기능도 제공합니다.",
+    features: [
+      "일반/장기 화재보험 보험료 산출",
+      "클릭 기반의 간편한 사용성",
+      "AI 기반 보험료 및 위험 평가",
+      "인수 거절 등 맞춤형 판정 기능"
+    ],
+    link: "https://fire-insurance-uw-system.vercel.app/",
+    icon: <Flame className="h-6 w-6" />,
+    accentColor: "bg-red-500/20",
+    buttonAccent: "bg-red-500/25 text-red-800 border-red-500/30 hover:bg-red-500/35 dark:text-red-200"
   }
 ]
 
