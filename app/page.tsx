@@ -261,7 +261,7 @@ const apps = [
       "정산 보고서 자동 생성",
       "빠른 재보험 결산 흐름 파악"
     ],
-    link: "https://insurer-product-proof-platform-ojm9.vercel.app/",
+    link: "https://reinsurance-settlement.vercel.app/",
     icon: <Briefcase className="h-6 w-6" />,
     accentColor: "bg-indigo-600/20",
     buttonAccent: "bg-indigo-600/25 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/35 dark:text-indigo-200",
