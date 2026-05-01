@@ -1,6 +1,8 @@
 import { AppCard } from "@/components/app-card"
+import { CardViewAppLauncher } from "@/components/card-view-app-launcher"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
+import { makeAppCardId } from "@/lib/app-card-id"
 import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck, Flame } from "lucide-react"
 
 const apps = [
@@ -183,7 +185,7 @@ const apps = [
       "프롬프트·도구·노하우 정보 공유",
       "비개발자도 AI로 앱을 만드는 경험 공유"
     ],
-    link: "https://www.vibecodinglab.ai.kr/",
+    link: "https://vibe-coding-lab-leen-taekyos-projects.vercel.app/",
     icon: <Sparkles className="h-6 w-6" />,
     accentColor: "bg-violet-500/20",
     buttonAccent: "bg-violet-500/25 text-violet-800 border-violet-500/30 hover:bg-violet-500/35 dark:text-violet-200"
@@ -404,9 +406,16 @@ export default function Home() {
 
       {/* Main Content - 카드보기 */}
       <section id="card-view" className="container mx-auto px-4 py-12 scroll-mt-24">
+        <CardViewAppLauncher
+          apps={apps.map((app) => ({
+            title: app.title,
+            link: app.link,
+            cardId: makeAppCardId(app.title),
+          }))}
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app) => (
-            <AppCard key={app.title} {...app} />
+            <AppCard key={app.title} {...app} cardId={makeAppCardId(app.title)} />
           ))}
         </div>
       </section>

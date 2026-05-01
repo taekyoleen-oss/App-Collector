@@ -1,7 +1,9 @@
 import React from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { AppOpenLink } from "@/components/app-open-link"
 import { ExternalLink, FileText } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface AppCardProps {
   title: string
@@ -16,6 +18,8 @@ interface AppCardProps {
   pdfLink?: string
   /** PDF 링크 버튼의 텍스트 (기본값: '설명서 보기 (PDF)') */
   pdfLabel?: string
+  /** 카드 뷰에서 스크롤 이동용 앵커 id */
+  cardId?: string
 }
 
 /** "대상: 브랜드(모델), ..." 형식 문자열을 { label, rows: [브랜드, 모델][] } 로 파싱 */
@@ -73,9 +77,15 @@ function FeatureItem({ feature, index }: { feature: string; index: number }) {
   )
 }
 
-export function AppCard({ title, description, features, link, icon, accentColor, buttonAccent, pdfLink, pdfLabel = "설명서 보기 (PDF)" }: AppCardProps) {
+export function AppCard({ title, description, features, link, icon, accentColor, buttonAccent, pdfLink, pdfLabel = "설명서 보기 (PDF)", cardId }: AppCardProps) {
   return (
-    <Card className={`border border-border/60 shadow-md hover:shadow-lg transition-all duration-200 flex flex-col h-full rounded-xl overflow-hidden ${accentColor}`}>
+    <Card
+      id={cardId}
+      className={cn(
+        "border border-border/60 shadow-md hover:shadow-lg transition-all duration-200 flex flex-col h-full rounded-xl overflow-hidden scroll-mt-24",
+        accentColor,
+      )}
+    >
       <CardHeader>
         <div className="flex items-center gap-3">
           <div className="p-3 bg-background/80 rounded-xl shadow-sm">
@@ -98,10 +108,10 @@ export function AppCard({ title, description, features, link, icon, accentColor,
             asChild 
             className={`w-full rounded-xl shadow-sm font-semibold transition-all duration-200 ${buttonAccent ?? "bg-primary/15 text-primary hover:bg-primary/25 border border-primary/20"}`}
           >
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <AppOpenLink href={link} appTitle={title} target="_blank" rel="noopener noreferrer">
               앱 열기
               <ExternalLink className="ml-2 h-4 w-4" />
-            </a>
+            </AppOpenLink>
           </Button>
           {pdfLink && (
             <Button 
