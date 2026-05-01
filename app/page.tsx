@@ -3,7 +3,7 @@ import { CardViewAppLauncher } from "@/components/card-view-app-launcher"
 import { AiToolsSection } from "@/components/ai-tools-section"
 import { SiteNav } from "@/components/site-nav"
 import { makeAppCardId } from "@/lib/app-card-id"
-import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck, Flame } from "lucide-react"
+import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck, Flame, CloudSun } from "lucide-react"
 
 const apps = [
   {
@@ -33,6 +33,21 @@ const apps = [
     icon: <Headphones className="h-6 w-6" />,
     accentColor: "bg-emerald-500/20",
     buttonAccent: "bg-emerald-500/25 text-emerald-800 border-emerald-500/30 hover:bg-emerald-500/35 dark:text-emerald-200"
+  },
+  {
+    title: "날씨에 맞춘 복장 추천",
+    description:
+      "날씨 정보를 바탕으로 객관적인 근거를 제시하며, 시간대에 맞는 복장을 추천해 드립니다. 산책·등산·골프 등 외부 활동별로 옷차림을 안내하고, 성별과 더위·추위 민감도에 따라 맞춤 안내를 제공합니다.",
+    features: [
+      "날씨 데이터 기반의 객관적 복장 추천",
+      "시간대별 맞춤 복장 제안",
+      "외부 활동 유형별 옷차림 안내",
+      "성별·체감(더위·추위) 민감도별 구분 안내"
+    ],
+    link: "https://weather-outfit-eight.vercel.app/",
+    icon: <CloudSun className="h-6 w-6" />,
+    accentColor: "bg-lime-500/20",
+    buttonAccent: "bg-lime-500/25 text-lime-900 border-lime-500/30 hover:bg-lime-500/35 dark:text-lime-100"
   },
   {
     title: "PDF Master",
