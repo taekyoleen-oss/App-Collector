@@ -214,7 +214,7 @@ const apps = [
       "직관적인 시각적 요소를 통한 강조 표시",
       "효율적인 강의 진행을 돕는 보조 도구 모음"
     ],
-    link: "https://lecture-assistant-dmmr.onrender.com/",
+    link: "https://lecture-assistant-chi.vercel.app/",
     icon: <Presentation className="h-6 w-6" />,
     accentColor: "bg-orange-500/20",
     buttonAccent: "bg-orange-500/25 text-orange-800 border-orange-500/30 hover:bg-orange-500/35 dark:text-orange-200",
@@ -230,7 +230,7 @@ const apps = [
       "To-Do 관리 기능",
       "소규모 기업에 최적화된 그룹웨어"
     ],
-    link: "https://company-groupware.onrender.com/",
+    link: "https://company-groupware-nine.vercel.app/login",
     icon: <CalendarDays className="h-6 w-6" />,
     accentColor: "bg-cyan-500/20",
     buttonAccent: "bg-cyan-500/25 text-cyan-800 border-cyan-500/30 hover:bg-cyan-500/35 dark:text-cyan-200",
