@@ -262,7 +262,7 @@ const apps = [
       "결과 검증 기능",
       "자동화된 ML 워크플로우"
     ],
-    link: "https://ml-auto-flow-new.vercel.app/",
+    link: "https://machine-learning-auto-flow.vercel.app/",
     icon: <Network className="h-6 w-6" />,
     accentColor: "bg-blue-600/20",
     buttonAccent: "bg-blue-600/25 text-blue-800 border-blue-600/30 hover:bg-blue-600/35 dark:text-blue-200",
