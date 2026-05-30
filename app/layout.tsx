@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
+import { AppShell } from '@/components/app-shell'
+
 import { Geist, Geist_Mono, Source_Serif_4 } from 'next/font/google'
 
 // Initialize fonts (preload: false로 초기 로드 시 미사용 폰트 preload 경고 완화)
@@ -23,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko" className="scroll-smooth">
       <body className={`font-sans antialiased`}>
-        {children}
+        <AppShell>{children}</AppShell>
         <Analytics />
       </body>
     </html>

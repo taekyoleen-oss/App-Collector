@@ -1,7 +1,6 @@
 import { AppCard } from "@/components/app-card"
 import { CardViewAppLauncher } from "@/components/card-view-app-launcher"
 import { AiToolsSection } from "@/components/ai-tools-section"
-import { SiteNav } from "@/components/site-nav"
 import { makeAppCardId } from "@/lib/app-card-id"
 import { FileText, Languages, Eraser, Image, Link as LinkIcon, Calculator, Headphones, SquareFunction, PenTool, ListTodo, Newspaper, Sparkles, Presentation, CalendarDays, Activity, Network, Briefcase, ShieldCheck, Flame, CloudSun } from "lucide-react"
 
@@ -404,7 +403,6 @@ const referenceLinks = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      <SiteNav />
       {/* Header */}
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-8">
